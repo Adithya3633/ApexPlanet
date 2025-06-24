@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Product Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ShopEase</h1>
+    <nav>
+      <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+  </header>
+  <main>
+    <section style="padding: 2rem 2rem 0 2rem;">
+      <select id="category-filter" style="width:100%;max-width:200px;padding:0.5rem 1rem;margin-bottom:1rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">
+        <option value="">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Kitchen">Kitchen</option>
+        <option value="Office">Office</option>
+        <option value="Health">Health</option>
+        <option value="Home">Home</option>
+      </select>
+      <div style="display:flex;gap:1rem;align-items:center;margin-bottom:1rem;">
+        <input type="number" id="min-price" placeholder="Min Price ($)" style="width:120px;padding:0.5rem 0.5rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">
+        <input type="number" id="max-price" placeholder="Max Price ($)" style="width:120px;padding:0.5rem 0.5rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">
+      </div>
+      <input type="text" id="search-input" placeholder="Search products..." style="width:100%;max-width:400px;padding:0.5rem 1rem;margin-bottom:1.5rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">
+    </section>
+    <section id="product-list">
+      <!-- Products will be rendered here -->
+    </section>
+    <div id="pagination" style="display:flex;justify-content:center;align-items:center;margin:2rem 0;"></div>
+  </main>
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-cart">&times;</span>
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="cart-total"></p>
+    </div>
+  </div>
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content" id="product-modal-content">
+      <span class="close" id="close-product">&times;</span>
+      <!-- Product details will be rendered here -->
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <div class="toast" id="toast"></div>
+</body>
+</html> 
