@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div class="product-app-container">
+        <header>
+            <h1>Book Store</h1>
+        </header>
+        <section class="controls">
+            <div class="filters">
+                <label>
+                    Category:
+                    <select id="category-filter">
+                        <option value="all">All</option>
+                    </select>
+                </label>
+                <label>
+                    Price:
+                    <input type="number" id="min-price" placeholder="Min" min="0" /> -
+                    <input type="number" id="max-price" placeholder="Max" min="0" />
+                </label>
+            </div>
+            <div class="sort">
+                <label>
+                    Sort by:
+                    <select id="sort-by">
+                        <option value="default">Default</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating-desc">Rating: High to Low</option>
+                        <option value="rating-asc">Rating: Low to High</option>
+                        <option value="name-asc">Name: A-Z</option>
+                        <option value="name-desc">Name: Z-A</option>
+                    </select>
+                </label>
+            </div>
+        </section>
+        <main>
+            <div id="product-list" class="product-list"></div>
+        </main>
+    </div>
+    <script src="products.js"></script>
+</body>
+</html> 
