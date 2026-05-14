@@ -3,79 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>Expense Tracker - Manage Your Finances</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <h1>💰 Expense Tracker</h1>
+            <p class="subtitle">Manage your finances smartly</p>
+        </div>
+        <div class="header-controls">
+            <select id="currency-select" class="currency-select">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="CAD">CAD</option>
+                <option value="AUD">AUD</option>
+                <option value="INR">INR</option>
+                <option value="BRL">BRL</option>
+            </select>
+            <button id="clear-all-btn" class="btn-icon" title="Clear All Data">🗑️</button>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>Expense Tracker</h1>
-        
-        <div class="balance-container">
-            <h2>Your Balance</h2>
-            <div class="balance" id="balance">$0.00</div>
-            
-            <div class="income-expense">
-                <div class="income">
-                    <h3>Income</h3>
-                    <p class="money plus" id="income">$0.00</p>
+        <!-- Stats Dashboard -->
+        <div class="stats-dashboard">
+            <div class="stat-card balance-card">
+                <div class="stat-label">Total Balance</div>
+                <div class="stat-value" id="balance">$0.00</div>
+            </div>
+            <div class="stat-card income-card">
+                <div class="stat-label">Total Income</div>
+                <div class="stat-value" id="income">$0.00</div>
+            </div>
+            <div class="stat-card expense-card">
+                <div class="stat-label">Total Expenses</div>
+                <div class="stat-value" id="expense">$0.00</div>
+            </div>
+            <div class="stat-card ratio-card">
+                <div class="stat-label">Expense Ratio</div>
+                <div class="stat-value" id="ratio">0%</div>
+            </div>
+        </div>
+
+        <!-- Add Transaction Form -->
+        <div class="form-section">
+            <h2>Add Transaction</h2>
+            <form id="form" class="transaction-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g., Grocery shopping" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <div class="category-input-group">
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                            </select>
+                            <button type="button" class="btn-add-category" id="add-category-btn" title="Add custom category">+</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="expense">
-                    <h3>Expense</h3>
-                    <p class="money minus" id="expense">$0.00</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <div class="amount-input-group">
+                            <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">+ Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Add Custom Category Modal -->
+        <div id="category-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Custom Category</h3>
+                    <button type="button" class="modal-close" id="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="category-name">Category Name</label>
+                        <input type="text" id="category-name" placeholder="e.g., Pet Supplies" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-emoji">Emoji</label>
+                        <input type="text" id="category-emoji" placeholder="e.g., 🐾" maxlength="2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-type">Type</label>
+                        <select id="category-type" required>
+                            <option value="">Select Type</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-category">Save Category</button>
                 </div>
             </div>
         </div>
 
-        <div class="currency-container">
-            <h3>Currency Settings</h3>
-            <div class="form-control">
-                <label for="currency-select">Select Currency</label>
-                <select id="currency-select" class="currency-select">
-                    <option value="USD">USD - US Dollar</option>
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="GBP">GBP - British Pound</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
-                    <option value="CAD">CAD - Canadian Dollar</option>
-                    <option value="AUD">AUD - Australian Dollar</option>
-                    <option value="CHF">CHF - Swiss Franc</option>
-                    <option value="CNY">CNY - Chinese Yuan</option>
-                    <option value="INR">INR - Indian Rupee</option>
-                    <option value="BRL">BRL - Brazilian Real</option>
-                    <option value="MXN">MXN - Mexican Peso</option>
-                    <option value="KRW">KRW - South Korean Won</option>
-                    <option value="SGD">SGD - Singapore Dollar</option>
-                    <option value="NZD">NZD - New Zealand Dollar</option>
-                    <option value="SEK">SEK - Swedish Krona</option>
-                    <option value="NOK">NOK - Norwegian Krone</option>
-                    <option value="DKK">DKK - Danish Krone</option>
-                    <option value="PLN">PLN - Polish Złoty</option>
-                    <option value="CZK">CZK - Czech Koruna</option>
+        <!-- Filters and Search -->
+        <div class="filter-section">
+            <div class="filter-group">
+                <input type="text" id="search-input" placeholder="🔍 Search transactions..." class="search-box">
+            </div>
+            <div class="filter-group">
+                <select id="filter-type" class="filter-select">
+                    <option value="all">All Transactions</option>
+                    <option value="income">Income Only</option>
+                    <option value="expense">Expenses Only</option>
+                </select>
+                <select id="sort-by" class="filter-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="amount-high">Amount: High to Low</option>
+                    <option value="amount-low">Amount: Low to High</option>
                 </select>
             </div>
         </div>
 
-        <div class="transaction-container">
-            <h3>Add New Transaction</h3>
-            <form id="form">
-                <div class="form-control">
-                    <label for="description">Description</label>
-                    <input type="text" id="description" placeholder="Enter description..." required>
-                </div>
-                <div class="form-control">
-                    <label for="amount">Amount</label>
-                    <input type="number" id="amount" placeholder="Enter amount..." required>
-                    <small>Use positive for income, negative for expense</small>
-                </div>
-                <button class="btn" type="submit">Add Transaction</button>
-            </form>
-        </div>
-
-        <div class="history-container">
-            <h3>Transaction History</h3>
+        <!-- Transactions History -->
+        <div class="history-section">
+            <div class="history-header">
+                <h2>Transaction History</h2>
+                <span class="transaction-count" id="transaction-count">0 transactions</span>
+            </div>
+            <div id="empty-state" class="empty-state">
+                <p>📭 No transactions yet. Add your first transaction to get started!</p>
+            </div>
             <ul id="transaction-list" class="transaction-list">
             </ul>
         </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
 
     <script src="script.js"></script>
 </body>
