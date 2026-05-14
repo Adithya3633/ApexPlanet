@@ -1,3 +1,7 @@
+// ===============================
+// PRODUCT DATA
+// ===============================
+
 const products = [
   {
     id: 1,
@@ -5,129 +9,166 @@ const products = [
     price: 59.99,
     category: "Electronics",
     image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-
   {
     id: 2,
     name: "Smart Watch",
-    price: 99.99,
+    price: 149.99,
     category: "Electronics",
     image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+      "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-
   {
     id: 3,
     name: "Laptop",
-    price: 899.99,
+    price: 999.99,
     category: "Electronics",
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+      "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
   },
-
   {
     id: 4,
+    name: "Smartphone",
+    price: 699.99,
+    category: "Electronics",
+    image:
+      "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 5,
     name: "Coffee Maker",
     price: 89.99,
     category: "Kitchen",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+      "https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-
-  {
-    id: 5,
-    name: "Air Fryer",
-    price: 120.99,
-    category: "Kitchen",
-    image:
-      "https://images.unsplash.com/photo-1585238342024-78d387f4a707"
-  },
-
   {
     id: 6,
-    name: "Office Chair",
-    price: 140.00,
-    category: "Office",
+    name: "Blender",
+    price: 49.99,
+    category: "Kitchen",
     image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+      "https://images.pexels.com/photos/4144234/pexels-photo-4144234.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-
   {
     id: 7,
-    name: "Smart TV",
-    price: 699.99,
-    category: "Electronics",
+    name: "Air Fryer",
+    price: 99.99,
+    category: "Kitchen",
     image:
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6"
+      "https://images.pexels.com/photos/6996329/pexels-photo-6996329.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-
   {
     id: 8,
-    name: "Robot Vacuum",
-    price: 250.00,
+    name: "Office Chair",
+    price: 129.99,
+    category: "Office",
+    image:
+      "https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 9,
+    name: "Standing Desk",
+    price: 299.99,
+    category: "Office",
+    image:
+      "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 10,
+    name: "Printer",
+    price: 79.99,
+    category: "Office",
+    image:
+      "https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 11,
+    name: "Electric Toothbrush",
+    price: 39.99,
+    category: "Health",
+    image:
+      "https://images.pexels.com/photos/6621461/pexels-photo-6621461.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 12,
+    name: "Massage Gun",
+    price: 89.99,
+    category: "Health",
+    image:
+      "https://images.pexels.com/photos/4498606/pexels-photo-4498606.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 13,
+    name: "Air Purifier",
+    price: 149.99,
     category: "Home",
     image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952"
-  }
+      "https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 14,
+    name: "Robot Vacuum",
+    price: 249.99,
+    category: "Home",
+    image:
+      "https://images.pexels.com/photos/4108714/pexels-photo-4108714.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 15,
+    name: "LED Desk Lamp",
+    price: 34.99,
+    category: "Electronics",
+    image:
+      "https://images.pexels.com/photos/112811/pexels-photo-112811.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 16,
+    name: "Bluetooth Speaker",
+    price: 69.99,
+    category: "Electronics",
+    image:
+      "https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
 ];
 
+// ===============================
+// DOM ELEMENTS
+// ===============================
+
 const productList = document.getElementById("product-list");
-
 const cartBtn = document.getElementById("cart-btn");
-
 const cartModal = document.getElementById("cart-modal");
-
 const closeCart = document.getElementById("close-cart");
-
 const cartItems = document.getElementById("cart-items");
-
 const cartCount = document.getElementById("cart-count");
-
 const cartTotal = document.getElementById("cart-total");
+const searchInput = document.getElementById("search-input");
+const categoryFilter = document.getElementById("category-filter");
+const pagination = document.getElementById("pagination");
 
 const productModal = document.getElementById("product-modal");
-
 const productModalContent = document.getElementById(
   "product-modal-content"
 );
 
-const searchInput = document.getElementById("search-input");
+const toast = document.getElementById("toast");
 
-const categoryFilter = document.getElementById(
-  "category-filter"
-);
-
-const minPriceInput = document.getElementById("min-price");
-
-const maxPriceInput = document.getElementById("max-price");
-
-const pagination = document.getElementById("pagination");
-
-const PRODUCTS_PER_PAGE = 6;
-
-let cart = [];
-
-let currentPage = 1;
-
-let currentSearch = "";
-
-let currentCategory = "";
-
-let currentMinPrice = "";
-
-let currentMaxPrice = "";
-
+const PRODUCTS_PER_PAGE = 8;
 const USD_TO_INR = 83;
 
-/* TOAST */
+let cart = [];
+let currentPage = 1;
+let currentSearch = "";
+let currentCategory = "";
+
+// ===============================
+// TOAST
+// ===============================
 
 function showToast(message) {
-
-  const toast = document.getElementById("toast");
-
   toast.textContent = message;
-
   toast.classList.add("show");
 
   setTimeout(() => {
@@ -135,123 +176,90 @@ function showToast(message) {
   }, 2000);
 }
 
-/* IMAGE */
-
-function getImageWithFallback(src, alt) {
-
-  return `
-    <img
-      src="${src}?auto=format&fit=crop&w=800&q=80"
-      alt="${alt}"
-      onerror="this.src='https://placehold.co/400x300?text=No+Image'"
-    >
-  `;
-}
-
-/* RENDER PRODUCTS */
+// ===============================
+// RENDER PRODUCTS
+// ===============================
 
 function renderProducts() {
-
   productList.innerHTML = "";
 
-  let filtered = products.filter(product => {
+  let filteredProducts = products.filter((product) => {
+    const matchSearch = product.name
+      .toLowerCase()
+      .includes(currentSearch.toLowerCase());
 
-    const matchesSearch =
-      product.name.toLowerCase().includes(
-        currentSearch.toLowerCase()
-      );
-
-    const matchesCategory =
-      !currentCategory ||
+    const matchCategory =
+      currentCategory === "" ||
       product.category === currentCategory;
 
-    const matchesMin =
-      !currentMinPrice ||
-      product.price >= Number(currentMinPrice);
-
-    const matchesMax =
-      !currentMaxPrice ||
-      product.price <= Number(currentMaxPrice);
-
-    return (
-      matchesSearch &&
-      matchesCategory &&
-      matchesMin &&
-      matchesMax
-    );
+    return matchSearch && matchCategory;
   });
 
   const totalPages = Math.ceil(
-    filtered.length / PRODUCTS_PER_PAGE
+    filteredProducts.length / PRODUCTS_PER_PAGE
   );
 
   const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
-
   const end = start + PRODUCTS_PER_PAGE;
 
-  const currentProducts = filtered.slice(start, end);
+  const paginatedProducts = filteredProducts.slice(start, end);
 
-  currentProducts.forEach(product => {
+  paginatedProducts.forEach((product) => {
+    const card = document.createElement("div");
 
-    const div = document.createElement("div");
+    card.className = "product-card";
 
-    div.className = "product";
-
-    div.innerHTML = `
-      ${getImageWithFallback(product.image, product.name)}
-
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      
       <div class="product-content">
+        <span class="product-category">${product.category}</span>
 
         <h3>${product.name}</h3>
 
-        <p>
+        <p class="price">
           $${product.price.toFixed(2)}
-          |
-          ₹${(product.price * USD_TO_INR).toFixed(0)}
+          <span>₹${(product.price * USD_TO_INR).toFixed(0)}</span>
         </p>
 
         <button onclick="addToCart(${product.id})">
           Add To Cart
         </button>
-
       </div>
     `;
 
-    div.addEventListener("click", (e) => {
-
+    card.addEventListener("click", (e) => {
       if (e.target.tagName === "BUTTON") return;
 
-      showProductModal(product);
+      openProductModal(product);
     });
 
-    productList.appendChild(div);
+    productList.appendChild(card);
   });
 
   renderPagination(totalPages);
 }
 
-/* PAGINATION */
+// ===============================
+// PAGINATION
+// ===============================
 
 function renderPagination(totalPages) {
-
   pagination.innerHTML = "";
 
   if (totalPages <= 1) return;
 
   for (let i = 1; i <= totalPages; i++) {
-
     const btn = document.createElement("button");
 
     btn.textContent = i;
 
     if (i === currentPage) {
-      btn.disabled = true;
+      btn.classList.add("active-page");
     }
 
     btn.onclick = () => {
-
       currentPage = i;
-
       renderProducts();
     };
 
@@ -259,26 +267,107 @@ function renderPagination(totalPages) {
   }
 }
 
-/* PRODUCT MODAL */
+// ===============================
+// ADD TO CART
+// ===============================
 
-function showProductModal(product) {
+window.addToCart = function (id) {
+  const product = products.find((item) => item.id === id);
 
+  const existingItem = cart.find((item) => item.id === id);
+
+  if (existingItem) {
+    existingItem.qty++;
+  } else {
+    cart.push({
+      ...product,
+      qty: 1,
+    });
+  }
+
+  updateCart();
+
+  showToast("Product added to cart");
+};
+
+// ===============================
+// UPDATE CART
+// ===============================
+
+function updateCart() {
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  let totalItems = 0;
+
+  cart.forEach((item) => {
+    total += item.price * item.qty;
+
+    totalItems += item.qty;
+
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <p>${item.qty} x $${item.price}</p>
+      </div>
+
+      <div class="cart-actions">
+        <button onclick="changeQty(${item.id}, -1)">-</button>
+
+        <span>${item.qty}</span>
+
+        <button onclick="changeQty(${item.id}, 1)">+</button>
+      </div>
+    `;
+
+    cartItems.appendChild(li);
+  });
+
+  cartCount.textContent = totalItems;
+
+  cartTotal.textContent = `
+    Total: $${total.toFixed(2)} | ₹${(total * USD_TO_INR).toFixed(0)}
+  `;
+}
+
+// ===============================
+// CHANGE QUANTITY
+// ===============================
+
+window.changeQty = function (id, change) {
+  const item = cart.find((product) => product.id === id);
+
+  if (!item) return;
+
+  item.qty += change;
+
+  if (item.qty <= 0) {
+    cart = cart.filter((product) => product.id !== id);
+  }
+
+  updateCart();
+};
+
+// ===============================
+// PRODUCT MODAL
+// ===============================
+
+function openProductModal(product) {
   productModalContent.innerHTML = `
+    <span class="close-modal" id="close-product-modal">&times;</span>
 
-    <span class="close" id="close-product">&times;</span>
-
-    ${getImageWithFallback(product.image, product.name)}
+    <img src="${product.image}" alt="${product.name}" class="modal-image">
 
     <h2>${product.name}</h2>
 
-    <p>Category: ${product.category}</p>
+    <p class="modal-category">${product.category}</p>
 
-    <p>
-      Price:
+    <h3>
       $${product.price.toFixed(2)}
-      |
-      ₹${(product.price * USD_TO_INR).toFixed(0)}
-    </p>
+      | ₹${(product.price * USD_TO_INR).toFixed(0)}
+    </h3>
 
     <button onclick="addToCart(${product.id})">
       Add To Cart
@@ -287,110 +376,39 @@ function showProductModal(product) {
 
   productModal.classList.remove("hidden");
 
-  document.getElementById("close-product").onclick = () => {
-
-    productModal.classList.add("hidden");
-  };
+  document.getElementById("close-product-modal").onclick =
+    () => {
+      productModal.classList.add("hidden");
+    };
 }
 
-/* CART */
+// ===============================
+// SEARCH
+// ===============================
 
-window.addToCart = function(id) {
+searchInput.addEventListener("input", (e) => {
+  currentSearch = e.target.value;
 
-  const product = products.find(p => p.id === id);
+  currentPage = 1;
 
-  const existing = cart.find(item => item.id === id);
+  renderProducts();
+});
 
-  if (existing) {
+// ===============================
+// CATEGORY FILTER
+// ===============================
 
-    existing.qty++;
+categoryFilter.addEventListener("change", (e) => {
+  currentCategory = e.target.value;
 
-  } else {
+  currentPage = 1;
 
-    cart.push({
-      ...product,
-      qty: 1
-    });
-  }
+  renderProducts();
+});
 
-  updateCart();
-
-  showToast("Added To Cart");
-};
-
-function updateCart() {
-
-  cartItems.innerHTML = "";
-
-  let total = 0;
-
-  let count = 0;
-
-  cart.forEach(item => {
-
-    total += item.price * item.qty;
-
-    count += item.qty;
-
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-      <span>${item.name}</span>
-
-      <div>
-
-        <button class="cart-qty-btn"
-        onclick="changeQty(${item.id}, -1)">
-        -
-        </button>
-
-        ${item.qty}
-
-        <button class="cart-qty-btn"
-        onclick="changeQty(${item.id}, 1)">
-        +
-        </button>
-
-      </div>
-
-      <button class="cart-remove-btn"
-      onclick="removeItem(${item.id})">
-      Remove
-      </button>
-    `;
-
-    cartItems.appendChild(li);
-  });
-
-  cartCount.textContent = count;
-
-  cartTotal.textContent =
-    `Total: $${total.toFixed(2)} | ₹${(total * USD_TO_INR).toFixed(0)}`;
-}
-
-window.changeQty = function(id, change) {
-
-  const item = cart.find(i => i.id === id);
-
-  if (!item) return;
-
-  item.qty += change;
-
-  if (item.qty <= 0) {
-    cart = cart.filter(i => i.id !== id);
-  }
-
-  updateCart();
-};
-
-window.removeItem = function(id) {
-
-  cart = cart.filter(i => i.id !== id);
-
-  updateCart();
-};
-
-/* EVENTS */
+// ===============================
+// MODAL EVENTS
+// ===============================
 
 cartBtn.onclick = () => {
   cartModal.classList.remove("hidden");
@@ -400,52 +418,18 @@ closeCart.onclick = () => {
   cartModal.classList.add("hidden");
 };
 
-cartModal.onclick = (e) => {
-
+window.onclick = (e) => {
   if (e.target === cartModal) {
     cartModal.classList.add("hidden");
   }
-};
-
-productModal.onclick = (e) => {
 
   if (e.target === productModal) {
     productModal.classList.add("hidden");
   }
 };
 
-searchInput.addEventListener("input", e => {
-
-  currentSearch = e.target.value;
-
-  currentPage = 1;
-
-  renderProducts();
-});
-
-categoryFilter.addEventListener("change", e => {
-
-  currentCategory = e.target.value;
-
-  currentPage = 1;
-
-  renderProducts();
-});
-
-minPriceInput.addEventListener("input", e => {
-
-  currentMinPrice = e.target.value;
-
-  renderProducts();
-});
-
-maxPriceInput.addEventListener("input", e => {
-
-  currentMaxPrice = e.target.value;
-
-  renderProducts();
-});
-
-/* INITIAL */
+// ===============================
+// INITIAL RENDER
+// ===============================
 
 renderProducts();
