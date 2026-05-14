@@ -1,97 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ShopEase - E-commerce Store</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        
+        <div class="balance-container">
+            <h2>Your Balance</h2>
+            <div class="balance" id="balance">$0.00</div>
+            
+            <div class="income-expense">
+                <div class="income">
+                    <h3>Income</h3>
+                    <p class="money plus" id="income">$0.00</p>
+                </div>
+                <div class="expense">
+                    <h3>Expense</h3>
+                    <p class="money minus" id="expense">$0.00</p>
+                </div>
+            </div>
+        </div>
 
-  <!-- HEADER -->
+        <div class="currency-container">
+            <h3>Currency Settings</h3>
+            <div class="form-control">
+                <label for="currency-select">Select Currency</label>
+                <select id="currency-select" class="currency-select">
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="BRL">BRL - Brazilian Real</option>
+                    <option value="MXN">MXN - Mexican Peso</option>
+                    <option value="KRW">KRW - South Korean Won</option>
+                    <option value="SGD">SGD - Singapore Dollar</option>
+                    <option value="NZD">NZD - New Zealand Dollar</option>
+                    <option value="SEK">SEK - Swedish Krona</option>
+                    <option value="NOK">NOK - Norwegian Krone</option>
+                    <option value="DKK">DKK - Danish Krone</option>
+                    <option value="PLN">PLN - Polish Złoty</option>
+                    <option value="CZK">CZK - Czech Koruna</option>
+                </select>
+            </div>
+        </div>
 
-  <header>
-    <h1>ShopEase</h1>
+        <div class="transaction-container">
+            <h3>Add New Transaction</h3>
+            <form id="form">
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="Enter description..." required>
+                </div>
+                <div class="form-control">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount..." required>
+                    <small>Use positive for income, negative for expense</small>
+                </div>
+                <button class="btn" type="submit">Add Transaction</button>
+            </form>
+        </div>
 
-    <nav>
-      <button id="cart-btn">
-        🛒 Cart (<span id="cart-count">0</span>)
-      </button>
-    </nav>
-  </header>
-
-  <!-- FILTER SECTION -->
-
-  <section class="filters">
-
-    <select id="category-filter">
-      <option value="">All Categories</option>
-      <option value="Electronics">Electronics</option>
-      <option value="Home">Home</option>
-      <option value="Kitchen">Kitchen</option>
-      <option value="Health">Health</option>
-      <option value="Office">Office</option>
-    </select>
-
-    <div class="price-box">
-      <input type="number" id="min-price" placeholder="Min Price">
-      <input type="number" id="max-price" placeholder="Max Price">
+        <div class="history-container">
+            <h3>Transaction History</h3>
+            <ul id="transaction-list" class="transaction-list">
+            </ul>
+        </div>
     </div>
 
-    <input
-      type="text"
-      id="search-input"
-      placeholder="Search Products..."
-    />
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <main>
-    <section id="product-list"></section>
-
-    <div id="pagination"></div>
-  </main>
-
-  <!-- CART MODAL -->
-
-  <div id="cart-modal" class="modal hidden">
-
-    <div class="modal-content">
-
-      <span class="close" id="close-cart">&times;</span>
-
-      <h2>Your Cart</h2>
-
-      <ul id="cart-items"></ul>
-
-      <p id="cart-total"></p>
-
-    </div>
-
-  </div>
-
-  <!-- PRODUCT MODAL -->
-
-  <div id="product-modal" class="modal hidden">
-
-    <div class="modal-content" id="product-modal-content"></div>
-
-  </div>
-
-  <!-- TOAST -->
-
-  <div class="toast" id="toast"></div>
-
-  <script src="app.js"></script>
-
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
