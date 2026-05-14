@@ -34,6 +34,13 @@
                 <div class="stat-label">Total Balance</div>
                 <div class="stat-value" id="balance">$0.00</div>
             </div>
+            <div class="stat-card manual-income-card">
+                <div class="stat-label">Enter Total Income</div>
+                <div class="stat-value">
+                    <input type="number" id="manual-income-input" placeholder="Enter income manually" step="0.01" min="0">
+                </div>
+                <div class="stat-note">This value is used for the income summary and expense ratio.</div>
+            </div>
             <div class="stat-card income-card">
                 <div class="stat-label">Total Income</div>
                 <div class="stat-value" id="income">$0.00</div>
@@ -152,6 +159,6 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 
