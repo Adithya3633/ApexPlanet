@@ -47,6 +47,7 @@ class ExpenseTracker {
         this.filterTypeSelect = document.getElementById('filter-type');
         this.sortBySelect = document.getElementById('sort-by');
         this.searchInput = document.getElementById('search-input');
+        this.manualIncomeInput = document.getElementById('manual-income-input');
         this.transactionCountEl = document.getElementById('transaction-count');
         this.emptyState = document.getElementById('empty-state');
         this.clearAllBtn = document.getElementById('clear-all-btn');
@@ -58,6 +59,17 @@ class ExpenseTracker {
         this.saveCategoryBtn = document.getElementById('save-category');
         this.cancelModalBtn = document.getElementById('cancel-modal');
         this.closeModalBtn = document.getElementById('close-modal');
+
+        const savedManualIncome = localStorage.getItem('manualIncome');
+        this.manualIncome = 0;
+        if (savedManualIncome !== null) {
+            const parsed = parseFloat(savedManualIncome);
+            if (!isNaN(parsed) && parsed >= 0) {
+                this.manualIncome = parsed;
+            }
+        }
+
+        this.manualIncomeInput.value = this.manualIncome > 0 ? this.manualIncome.toFixed(2) : '';
 
         // Set today's date as default
         this.dateInput.valueAsDate = new Date();
@@ -86,6 +98,8 @@ class ExpenseTracker {
             this.searchTerm = e.target.value.toLowerCase();
             this.render();
         });
+
+        this.manualIncomeInput.addEventListener('input', this.handleManualIncomeChange.bind(this));
         
         // Event Listeners - Clear All
         this.clearAllBtn.addEventListener('click', this.clearAllData.bind(this));
@@ -224,6 +238,15 @@ class ExpenseTracker {
         this.saveToLocalStorage();
         this.showToast('Transaction added successfully!', 'success');
         this.clearForm();
+
+        // Reset filters so the new transaction appears in history immediately
+        this.filterType = 'all';
+        this.filterTypeSelect.value = 'all';
+        this.sortBy = 'newest';
+        this.sortBySelect.value = 'newest';
+        this.searchTerm = '';
+        this.searchInput.value = '';
+
         this.render();
     }
 
@@ -249,13 +272,11 @@ class ExpenseTracker {
     }
 
     calculateBalance() {
-        return this.transactions.reduce((total, t) => total + t.amount, 0);
+        return this.manualIncome - this.calculateExpense();
     }
 
     calculateIncome() {
-        return this.transactions
-            .filter(t => t.amount > 0)
-            .reduce((total, t) => total + t.amount, 0);
+        return this.manualIncome;
     }
 
     calculateExpense() {
@@ -265,10 +286,23 @@ class ExpenseTracker {
     }
 
     calculateExpenseRatio() {
-        const income = this.calculateIncome();
+        const income = this.manualIncome;
         const expense = this.calculateExpense();
         if (income === 0) return 0;
         return Math.round((expense / income) * 100);
+    }
+
+    handleManualIncomeChange() {
+        const value = parseFloat(this.manualIncomeInput.value);
+        this.manualIncome = !isNaN(value) && value >= 0 ? value : 0;
+
+        if (this.manualIncomeInput.value.trim() === '') {
+            localStorage.removeItem('manualIncome');
+        } else {
+            localStorage.setItem('manualIncome', this.manualIncome);
+        }
+
+        this.render();
     }
 
     changeCurrency() {
@@ -366,7 +400,7 @@ class ExpenseTracker {
 
     updateDisplay() {
         const balance = this.calculateBalance();
-        const income = this.calculateIncome();
+        const income = this.manualIncome;
         const expense = this.calculateExpense();
         const ratio = this.calculateExpenseRatio();
 
