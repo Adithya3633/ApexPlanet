@@ -198,6 +198,27 @@ body {
     color: var(--success);
 }
 
+.manual-income-card {
+    border-top-color: var(--success);
+}
+
+.manual-income-card .stat-value input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    background: #f9fafb;
+    text-align: right;
+}
+
+.manual-income-card .stat-note {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
 .expense-card {
     border-top-color: var(--danger);
 }
